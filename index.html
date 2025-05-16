@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <h3> JavaScript: Exception Handling <br>
+1. Write a program to handle the exception caused by printing the variable without declaring it. <br>
+
+2. Write a program to throw "divide by Zero" error using throw statement when a number is divided by Zero. <br>
+
+3. Write a program to throw "out of bound error " error using throw statement when a program try to access an array index which is not present.<br>
+
+4. Write a program of exception handling using finally statement. </h3> <br>
+    
+	
+	<script>
+        //Question 1
+        try {
+    document.writeln(undeclaredVariable);
+} catch (error) {
+    document.writeln("<br>1.)Exception caught:", error.message);
+}
+
+
+    //Question 2
+    function divide(a, b) {
+    if (b === 0) {
+        throw new Error("Divide by Zero error");
+    }
+    return a / b;
+}
+
+try {
+    let result = divide(10, 0);
+    document.writeln("Result:", result);
+} catch (error) {
+    document.writeln("<br>2.)Exception caught:", error.message);
+}
+
+//Question 3
+function getElement(arr, index) {
+    if (index < 0 || index >= arr.length) {
+        throw new Error("index out of bound error");
+    }
+    return arr[index];
+}
+
+try {
+    const array = [1, 2, 3];
+    document.writeln(getElement(array, 5));
+} catch (error) {
+    document.writeln("<br>3.)Exception caught:", error.message);
+}
+
+//Question 4
+try {
+    let result = 10 / 0;
+    if (!isFinite(result)) {
+        throw new Error("Divide by zero encountered");
+    }
+    document.writeln("Result:", result);
+} catch (error) {
+    document.writeln("<br>4.)Exception caught:", error.message);
+} finally {
+    document.writeln("<br>4.)This block always executes (finally block).");
+}
+
+    </script>
+</body>
+</html>
